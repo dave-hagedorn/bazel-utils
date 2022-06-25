@@ -35,14 +35,13 @@ def github_archive(org, repo, version, override_name = None, sha256 = "", non_ba
         build_file = "@//external_workspaces:{}.build".format(name) if non_bazel else None,
     )
 
-def cc_dependencies():
+def cc_workspace_dependencies():
     """Workspace macro to do the same things that every (one of my) Bazel C++ workspace(s) needs
 
     Since Bazel can't run load statements in a macro (https://github.com/bazelbuild/bazel/issues/1550)
-    The caller still has to load the compile commands rules
+    The caller still has to load the rules/macros in these archives (see README.md)
 
-    load("@hedron_compile_commands//:workspace_setup.bzl", "hedron_compile_commands_setup")
-    hedron_compile_commands_setup()
+    # End common post-setup
 
     This macro may be expanded in the future to run other steps common to all (of my) Bazel C++ workspaces
     """
@@ -53,4 +52,12 @@ def cc_dependencies():
         version = "670e86177b6b5c001b03f4efdfba0f8019ff523f",
         override_name = "hedron_compile_commands",
         sha256 = "9e75a976ed9d2485c3c2fa6faf46737297b42a6f2e685c25445f06c3c9482474",
+    )
+
+    github_archive(
+        org = "grailbio",
+        override_name = "com_grail_bazel_toolchain",
+        repo = "bazel-toolchain",
+        sha256 = "1c813e5ede66901f6ab431f28640aba1590bca28ba9e8dc97661593b41d5dcdf",
+        version = "0.7.2",
     )
