@@ -35,6 +35,8 @@ def github_archive(org, repo, version, override_name = None, sha256 = "", non_ba
         build_file = "@//external_workspaces:{}.build".format(name) if non_bazel else None,
     )
 
+LLVM_VERSION = "14.0.0"
+
 def cc_workspace_dependencies():
     """Workspace macro to do the same things that every (one of my) Bazel C++ workspace(s) needs
 

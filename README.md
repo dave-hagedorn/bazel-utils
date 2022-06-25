@@ -11,13 +11,13 @@ Add to WORKSPACE:
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
-    name = "bazel-utils",
+    name = "bazel-utils_",
     sha256 = "7b78855042acaf219c01e15b22ebdad6ed6ebb40313c53c360c7288004db11b2",
-    strip_prefix = "bazel-utils-1.0.0",
-    url = "https://www.github.com/dave-hagedorn/bazel-utils/archive/1.0.0.zip",
+    strip_prefix = "bazel-utils-1.1.0",
+    url = "https://www.github.com/dave-hagedorn/bazel-utils/archive/1.1.0.zip",
 )
 
-load("@bazel-utils//:bazel-utils.bzl", "cc_workspace_dependencies", "github_archive")
+load("@bazel-utils//:bazel-utils.bzl", "LLVM_VERSION", "cc_workspace_dependencies", "github_archive")
 
 cc_workspace_dependencies()
 
@@ -34,7 +34,7 @@ bazel_toolchain_dependencies()
 
 llvm_toolchain(
     name = "llvm_toolchain",
-    llvm_version = "14.0.0",
+    llvm_version = LLVM_VERSION,
 )
 
 load("@llvm_toolchain//:toolchains.bzl", "llvm_register_toolchains")
