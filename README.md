@@ -12,7 +12,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "bazel-utils_",
-    sha256 = "7b78855042acaf219c01e15b22ebdad6ed6ebb40313c53c360c7288004db11b2",
+    sha256 = "18a5a55fdbef6670fcde4c5b81ee3e36150b653d7597b7c0969ae836774dc423",
     strip_prefix = "bazel-utils-1.1.0",
     url = "https://www.github.com/dave-hagedorn/bazel-utils/archive/1.1.0.zip",
 )
@@ -26,7 +26,7 @@ load("@hedron_compile_commands//:workspace_setup.bzl", "hedron_compile_commands_
 load("@com_grail_bazel_toolchain//toolchain:deps.bzl", "bazel_toolchain_dependencies")
 load("@com_grail_bazel_toolchain//toolchain:rules.bzl", "llvm_toolchain")
 
-# It would be better if these were in one convenience macro, but macos cannot contain undefined symbols
+# It would be better if these were in one convenience macro, but macros cannot contain undefined symbols
 # - these calls have to appear after the load()'s above
 hedron_compile_commands_setup()
 
