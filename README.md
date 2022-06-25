@@ -12,7 +12,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 http_archive(
     name = "bazel-utils",
-    sha256 = "",
+    sha256 = "7b78855042acaf219c01e15b22ebdad6ed6ebb40313c53c360c7288004db11b2",
     strip_prefix = "bazel-utils-1.0.0",
     url = "https://www.github.com/dave-hagedorn/bazel-utils/archive/1.0.0.zip",
 )
