@@ -43,17 +43,15 @@ def cc_workspace_dependencies():
     Since Bazel can't run load statements in a macro (https://github.com/bazelbuild/bazel/issues/1550)
     The caller still has to load the rules/macros in these archives (see README.md)
 
-    # End common post-setup
-
     This macro may be expanded in the future to run other steps common to all (of my) Bazel C++ workspaces
     """
 
     github_archive(
-        org = "hedronvision",
+        org = "dave-hagedorn",
         repo = "bazel-compile-commands-extractor",
-        version = "670e86177b6b5c001b03f4efdfba0f8019ff523f",
+        version = "9a2fe5751d2c5c62f27913fe88bca572a9aec178",
         override_name = "hedron_compile_commands",
-        sha256 = "9e75a976ed9d2485c3c2fa6faf46737297b42a6f2e685c25445f06c3c9482474",
+        sha256 = "0d17bdbb7d470611235f7348e5c295187078ee810a53cf8468002f5b68f1f916",
     )
 
     github_archive(
